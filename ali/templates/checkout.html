@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block loader %}{% include 'loader.html' %}{% endblock loader %}
+{% block header %}{% include 'header.html' %}{% endblock header %}
+{% block banner %}{% include 'banner.html' %}{% endblock banner %}
+{% block content %}
+<div class="container-fluid mt-5 mb-5">
+  <div class="row mt-5 cart">
+    <div  class="col-12 col-md-6">
+      <h1 class="text-center text-capitalize title">order summary</h1>
+      <table>
+        <thead>
+            <th>img</th>
+            <th>item</th>
+            <th>price</th>
+            <th>quantity</th>
+            <th>amount</th>
+          </thead>
+          <tbody>
+            
+            {% for item  in cart  %}
+              
+            <tr class="item">
+              <td><img src="{{item.product.img.url}}" alt="" style="height: 50px;"></td>
+              <td class="text-capitalize">{{item.product.name}}</td>
+              <td>₦{{item.price}}</td>
+              <td>{{item.quantity}}</td>
+              <td>₦{{item.amount}}</td>
+            </tr>
+            {% endfor %}
+            <tr class="subtot">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><span>total</span>=</td>
+              <td>₦{{total}}</td>
+            </tr>
+          </tbody>
+        </table>
+         
+      </div>
+      <div class="col-12 col-md-6 checkout">
+        <form action="{% url 'payment' %}" method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">first name</label>
+            <input name="first_name" type="text" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">last name</label>
+            <input name="last_name" type="text" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">phone</label>
+            <input name="phone" type="text" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">shipping address</label>
+            <input type="hidden" name="total" value="{{total}}">
+            <input name="address" type="text" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">email</label>
+            <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-warning">pay now</button>
+          </div> 
+        </form>
+      </div>
+    </div>
+ </div>
+</div>
+{% endblock content %}
+{% block footer %}{% include 'footer.html' %}{% endblock footer %}
+        

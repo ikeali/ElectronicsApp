@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block loader %}{% include 'loader.html' %} {% endblock loader %}
+{% block header %}{% include 'header.html' %} {% endblock header %}
+{% block carousel %}{% include 'carousel.html' %} {% endblock carousel %}
+{% block banner %}{% include 'banner.html' %} {% endblock banner %}
+{% block content %}
+
+<h1  class="text-center text-capitalize mb-5 title">popular products</h1>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        {% for product in popular %}
+      <div class="col=12 col-md-6 col-lg-3"> 
+        <div class="popcard">
+          <a href="{% url 'detail' product.id product.slug %}">
+            <img src="{{product.img.url}}" class="card-img-top" alt="..." />
+
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">N{{product.price}}</p>
+            <form action="{% url 'add_to_cart' %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="itemid" value="{{product.id}}">
+              <input type="hidden" name="quantity" value="1">
+              <button class="btn btn-warning">Add to cart</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container-fluid mt-4 mb-5 catsec">
+        <h1 class="text-capitalize text-center">shop by category</h1>
+        <div class="row categ pt-3 pb-5">
+
+            {% for category in categ %}
+            <div class="col=12 col-md-6 col-lg-3"> 
+                <div class="card">
+                  <a href="{% url 'category' category.id %}">
+                    <img src="{{category.cating.url}}" class="card-img-top" alt="..." />
+
+                  </a>
+                    <h5 class="bg-dark text-white text-capitalize text-center">{{category.name}}</h5>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+  <div>
+    <h1 class="text-center text-capitalize">featured products</h1>
+    <div class="row">
+        {% for product in featured %}
+      <div class="col=12 col-md-6 col-lg-3">
+        <div class="card featcard">
+          <a href=" {% url 'detail' product.id product.slug %}">
+            <img src="{{product.img.url}}" class="card-img-top" alt="..." />
+
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">N{{product.price}}</p>
+            <form action="{% url 'add_to_cart' %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="itemid" value="{{product.id}}">
+              <input type="hidden" name="quantity" value="1">
+              <button class="btn btn-warning">Add to cart</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endfor %} 
+
+    </div>
+</div>
+{% endblock content %}
+{% block footer %}{% include 'footer.html' %}{% endblock footer %}
+        

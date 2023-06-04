@@ -1,0 +1,107 @@
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <img src="{{info.logo.url}}" style="height: 60px;" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}">Products</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Catergory
+            </a>
+            <ul class="dropdown-menu">
+              
+              {% for item in categ %}
+              <li><a class="dropdown-item" href="{% url 'category' item.id %}">{{item.name|title}}</a></li>
+              {% endfor %}
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'cart' %}">
+            <div class="wrapper">
+            <i class="bi bi-cart4"></i>
+            <span class="badge">{{itemcount}}</span>
+            </div>
+            </a>  
+        </li>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+          >
+          {% if user.customer %}
+          <img src="{{user.customer.pix.url}}" style="height: 30px;" alt="" /><span>Hi {{user.username}}</span>
+          {% endif %}  
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'signout' %}">Logout</a></li>
+          </ul>
+        </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}">Products</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Catergory
+            </a>
+            <ul class="dropdown-menu">
+              
+              {% for item in categ %}
+              <li><a class="dropdown-item" href="{% url 'category' item.id %}">{{item.name|title}}</a></li>
+              {% endfor %}
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'signin' %}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+        </li>
+    
+        </li>
+          {% endif %}
+        </ul>
+      <form action="{% url 'search' %}" method="POST"  class="d-flex" role="search">
+        {% csrf_token %}
+      <input class="form-control me-2" name="item" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-dark" type="submit">Search</button>
+      </form>
+      <div class="mee">
+        <i class="bi bi-moon-fill"></i>
+        <!-- <i class="bi bi-sun-fill"></i> -->
+      </div>
+    </div>
+    </div>
+  </nav>
+{% comment %} pop up {% endcomment %}
+{% for item in messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{item}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div> 
+  {% endfor %}
+{% comment %} pop up done{% endcomment %}

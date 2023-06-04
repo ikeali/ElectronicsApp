@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block loader %}{% include 'loader.html' %}{% endblock loader %}
+{% block header %}{% include 'header.html' %}{% endblock header %}
+{% block banner %}{% include 'banner.html' %}{% endblock banner %}
+{% block content %}
+
+
+<div class="container mt-5 mb-5">
+  <div class="row det">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-6">
+          <img src="{{fdet.img.url}}" class="img-fluid rounded-start" style="height: 60vh;" width="500px">
+        </div>
+        <div class="col-md-6">
+         
+        
+         <div class="card-body">
+          <h1 class="card-title text-capitalize">{{fdet.name}}</h1>
+          <h5 class="card-title">₦{{fdet.price}}</h5>
+          <hr>
+          <p class="card-text">Lorem ipsum dolor sit amet.</p>
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="itemid" value="{{fdet.id}}">
+            <input type="hidden" name="quantity" value="1">
+            <button class="btn btn-warning">Add to cart</button>
+          </form>
+          <p class="detcat">Category: <span>{{fdet.type}}</span></p>
+        </div>
+         
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+
+{% endblock content %}
+{% block footer %}{% include 'footer.html' %}{% endblock footer %}
+        

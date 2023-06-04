@@ -1,0 +1,492 @@
+*{
+    padding-inline-start: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.loader-icon{
+    width: 100%;
+    height: 100vh;
+    background-color: gray;
+    transition: all 5s ease;
+    position: absolute;
+    z-index: 9999999;
+    overflow-y: hidden !important;
+}
+.loader-icon .loader{
+    width: 100px;
+    height: 100px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 15px dashed white;
+    position: absolute;
+    margin: auto;
+    border-top-color:hotpink ;
+    border-radius:50%;
+    animation: spin .5s linear infinite;
+}
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
+/* styling header  */
+.navbar{
+    background-color: hotpink;
+}
+.navbar-nav a{
+  color: white;  
+}
+.nav-item .dropdown-menu{
+    background-color: hotpink;
+}
+.wrapper{
+    position: relative;
+}
+.wrapper span{
+    position: absolute;
+    top: -2px;
+    right: -10px;
+    background-color: black;
+    font-size: 8px;
+    border-radius: 50px;
+}
+.nav-item img{
+    border-radius: 50%;
+}
+.mee{
+    margin-left: 3%;
+    cursor: pointer;
+}
+:root{
+    --bg:white;
+    --icon:black;
+    --text: black;
+}
+.dark{
+    --bg: black;
+    --text: white;
+    --card: black;
+}
+body{
+    background: var(--bg) !important;
+    color: var(--text) !important;
+    overflow-y: hidden;
+    font-family: 'Alkatra', cursive;
+}
+/* styling header done  */
+
+/* styling carousel  */
+
+.carousel-control-prev i{
+    font-size: 50px;
+    color:hotpink;
+}
+.carousel-control-next i{
+    font-size: 50px;
+    color: hotpink;
+}
+.carousel-indicators .active{
+    background-color: hotpink !important;
+}
+
+/* styling carousel done  */
+
+.popcard{
+    text-align: center;
+    outline: 1px solid hotpink;
+    box-shadow: 0px 0px 30px hotpink;
+    transition: 1s;
+    cursor: pointer;
+}
+.popcard:hover{
+    transform: translateY(-20px);
+}
+.popcard img{
+    height: 250px;
+    border-bottom: 2px solid hotpink;
+    padding: 5%;
+}
+.title::after{
+    content:'';
+    display: block;
+    width: 180px;
+    height: 3px;
+    background-color: hotpink;
+    margin-left: auto;
+    margin-right: auto;
+}
+.catsec{
+    background-color: hotpink;
+}
+.categ .card{
+    border-radius: 50%;
+}
+.categ .card img{
+    border-radius: 50%;
+    height: 300px;
+    opacity: 1;
+    transition: 0.5s;
+}
+.categ .card h5{
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    padding: 1% 10%;
+}
+.categ .card img:hover{
+    transform: scale(1.2);
+}
+.featcard{
+    text-align: center;
+    outline: 1px solid hotpink;
+    box-shadow: 0px 0px 30px hotpink;
+    cursor: pointer;
+}
+.featcard img{
+    height: 250px;
+    border-bottom: 2px solid hotpink;
+    transition: 2s;
+    padding: 5%;
+}
+.featcard img:hover{
+    transform: rotateY(180deg);
+}
+.featcard button{
+    background-color: hotpink;
+    border: none;
+}
+
+.paginate{
+    margin-left: 40%;
+}
+/* styling content done  */
+/* styling footer  */
+footer{
+    background-color: hotpink
+}
+.fitem h3{
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-top: 5px;
+}
+.fitem ul i{
+    font-size: 30px;
+    color: yellow
+}
+.fitem ul i:hover{
+    color: black;
+
+}
+.fitem li{
+    padding-left: 5%;
+}
+.flink{
+    text-align: center;
+}
+.flink a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;  
+}
+
+/* styling footer  done */
+
+/* styling product page  */
+
+.banner{
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(../Assignment/electronics\ banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+}
+/* styling product page done */
+
+/* styling banner done  */
+
+/* styling contact */
+.contact label{
+    font-weight: 500;
+}
+.contact input:focus{
+    border: none;
+    outline: 2px solid hotpink;
+}
+.contact textarea :focus{
+    border: none;
+    outline: 2px solid hotpink
+}
+.contact iframe{
+    height: 50vh;
+}
+/* styling contact done */
+
+/* styling detail  */
+.det .card{
+    border: none;
+}
+
+.det .btn{
+    background-color:hotpink;
+    border: none;
+}
+.det p{
+    color: black;
+}
+.det label{
+    font-weight: 500;
+}
+.detcat{
+    font-weight: 400;
+    padding-top: 2%;
+    font-style: italic;
+    text-transform: capitalize;
+}
+.detcat span{
+    color: brown;
+}
+/* styling detail done  */
+
+/* styling signup  */
+.signup form{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: 1px solid hotpink;
+    padding: 3%;
+    box-shadow: 0px 0px 30px brown;
+}
+.signup form label{
+    color: black;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.signup form input:focus{
+    border: 1px solid hotpink !important;
+    outline: none !important;
+}
+.signup .btn{
+    background-color: hotpink;
+    width: 100%;
+    color: white;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.signup p{
+    font-weight: 500;
+}
+.signup a{
+    text-decoration: none;
+    color: brown;
+}
+.pass{
+    position: relative;
+}
+.see{
+    position: absolute;
+    top: 55%;
+    right: 20px;
+    cursor: pointer;
+}
+.see .bi-eye-fill{
+    display: none;
+}
+.see.hide .bi-eye-fill{
+    display: block;
+}
+.see.hide .bi-eye-slash-fill{
+    display: none;
+
+}
+
+/* styling signup done */
+
+/* styling cart  */
+.cart table{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid hotpink;
+    text-align: center;
+}
+.cart thead{
+    background-color: hotpink;
+    text-transform: capitalize;
+    color: white;
+}
+.cart i{
+    color: red;
+}
+.item td{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-weight: 500;
+    border: 1px solid hotpink
+}
+.item img{
+    transition: 1s;
+    cursor: pointer;
+    height: 50px;
+}
+.item img:hover{
+    transform: scale(5);
+}
+.subtot td{
+    padding-bottom: 2%;
+    font-weight: 500;
+}
+.subtot span{
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.subtot button{
+    text-transform: capitalize;
+}
+.checkout label{
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.checkout input:focus{
+    border: 1px solid darkgoldenrod;
+}
+.checkout button{
+    text-transform: capitalize;
+}
+
+/* styling cart done  */
+
+/* styling profile  */
+.pavat{
+    background-color: hotpink;
+    text-align: center;
+}
+.pavat img{
+    padding-top: 5%;
+    border-radius: 100%;
+}
+.pavat h3{
+    font-style: oblique;
+}
+.pavat li a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: white;
+    font-size: 20px;
+}
+
+.pavat li a:hover{
+    color: blue;
+}
+.pform form{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.pform label{
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.pform button{
+    text-transform: capitalize;
+    width: 100%;
+    background-color: hotpink;
+    border: none;
+    color: white;
+    font-weight: 500;
+    }
+    .thanks{
+        text-align: center;
+    }
+    .thanks p{
+        font-size: 20px;
+    }
+    .thanks a{
+        text-decoration: none;
+        color: brown;
+        font-weight: 600;
+    }
+    .thanks button{
+        background-color: hotpink;
+    }
+
+/* styling profile done  */
+
+    @media (max-width: 479px){
+        .carousel-item img{
+            height: 40vh;
+        }
+        .carousel-control-prev i{
+            font-size: 20px;
+            color: hotpink
+        }
+        .carousel-control-next i{
+            font-size: 20px;
+            color: hotpink;
+        }
+        .popcard{
+            text-align: center;
+            outline: 1px solid hotpink;
+            box-shadow: 0px 0px 30px hotpink;
+            transition: 1s;
+            cursor: pointer;
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 3%;
+        }
+        .categ .card{
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: 2%;
+            width: 70%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+        .categ .card img{
+            border-radius: 100%;
+            height: 200px;
+            opacity: 1;
+            transition: 0.5s;
+            position: relative;
+        }
+        .categ .card h5{
+            position: absolute;
+            top: 80%;
+            left: 20%;
+            padding: 3% 5%;
+        }
+        .featcard{
+            text-align: center;
+            outline: 1px solid hotpink;
+            box-shadow: 0px 0px 30px hotpink;
+            cursor: pointer;
+            margin-left: 5%;
+            margin-right: 5%;
+            width: 90%;
+            margin-top: 3%;
+        }
+        .fitem{
+            margin-top: 3%;
+        }
+        .fitem img{
+            height: 50px;
+        }   
+        
+        .contact iframe{
+            height: 50vh;
+            width: 50vh;
+
+        }
+        .item img{
+            transition: 1s;
+            cursor: pointer;
+            height: 20px;
+        }
+
+    
+}

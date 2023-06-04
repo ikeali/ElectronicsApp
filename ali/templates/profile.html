@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block loader %}{% include 'loader.html' %}{% endblock loader %}
+{% block header %}{% include 'header.html' %}{% endblock header %}
+{% block banner %}{% include 'banner.html' %}{% endblock banner %}
+{% block content %}
+<div class="container mt-5 mb-5">
+  <h1 class="text-center text-capitalize mb-5 title">my profile</h1>
+  <div class="row">
+    <div class="col-12 col-md-3 pavat">
+      <img src="{{userprof.pix.url}}" alt="" style="height: 200px;">
+      <h3>{{userprof.user}}</h3>
+      <hr>
+      <ul class="list-unstyled">
+        <li><a href="/{% url 'profile' %}">profile</a></li>
+        <li><a href="{% url 'profile_update' %}">profile update</a></li>
+        <li><a href="{% url 'password_update' %}">password update</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-9 pform">
+      <form action="">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">first name</label>
+          <input type="text" value="{{userprof.first_name}}" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">last name</label>
+          <input type="text" value="{{userprof.last_name}}" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">phone</label>
+          <input type="text" value="{{userprof.phone}}" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">address</label>
+          <input type="text" value="{{userprof.address}}" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">email address</label>
+          <input type="text" value="{{userprof.email}}" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          <div class="mt-3">
+            <button class="btn btn-warning">send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+  </div>
+</div>
+
+{% endblock content %}
+{% block footer %}{% include 'footer.html' %}{% endblock footer %}
+        
